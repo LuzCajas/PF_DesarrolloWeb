@@ -80,14 +80,16 @@ WSGI_APPLICATION = 'PF.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+mysql://root:UJJlEBCnncitimJMkehhZyUitrQmGnOB@shuttle.proxy.rlwy.net:59491/railway
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pf_desarrolloweb',
+        'NAME': 'railway',
         'USER' : 'root',
-        'PASSWORD' : 'Maype2003',
-        'HOST' : 'localhost',
-        'PORT' : '3306',}
+        'PASSWORD' : 'UJJlEBCnncitimJMkehhZyUitrQmGnOB',
+        'HOST' : 'shuttle.proxy.rlwy.net',
+        'PORT' : '59491',}
 }
 
 
