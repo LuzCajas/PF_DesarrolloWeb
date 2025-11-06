@@ -88,11 +88,12 @@ WSGI_APPLICATION = 'PF.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER' : 'root',
-        'PASSWORD' : 'UJJlEBCnncitimJMkehhZyUitrQmGnOB',
-        'HOST' : 'shuttle.proxy.rlwy.net',
-        'PORT' : '59491',}
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
 
 
