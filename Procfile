@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn PF.wsgi
+web: python manage.py collectstatic --noinput && gunicorn PF.wsgi:application --bind 0.0.0.0:$PORT
