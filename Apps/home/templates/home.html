@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>DISTEIL</h1>
+							</header>
+							<div class="content">
+								<p>“Carteras y billeteras que combinan estilo, comodidad <br />
+									y autenticidad en cada detalle.”</p>
+								<ul class="actions">
+									<li><a href="#one" class="button next scrolly">Comenzar</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+				<div id="main">
+
+                <!-- One -->
+                <section id="one" class="tiles">
+                    {% for categoria in categorias %}
+                    <article>
+                        <span class="image">
+                            <img src="{% static 'images/pic0{{ forloop.counter }}.jpg' %}" alt=" " />
+                        </span>
+                        <header class="major">
+                            <h3><a href="{% url 'modulos:modulosapp' %}?categoria={{ categoria.id }}" class="link">{{ categoria.nombre }}</a></h3>
+                            <p>{{ categoria.descripcion|truncatewords:10 }}</p>
+                        </header>
+                    </article>
+						{% empty %}
+						<p>No hay categorías registradas.</p>
+                    {% endfor %}
+                </section>
+
+                    <!-- Two -->
+                        <section id="two">
+                            <div class="inner">
+                                <header class="major">
+                                    <h2>Tu estilo comienza aquí..</h2>
+                                </header>
+                                <p>En nuestra tienda encontrarás mucho más que carteras y billeteras: descubrirás accesorios diseñados para acompañarte en cada momento de tu día. 
+								Cada pieza combina elegancia, funcionalidad y un toque único que refleja tu personalidad.
+								Ya sea que busques la cartera ideal para completar tu look, una billetera práctica que te acompañe siempre, 
+								o un detalle especial para regalar, aquí tenemos lo que necesitas.</p>
+								{% if request.user.is_authenticated %}
+									<p style="color: white; font-size: 1.1em; margin-top: 1em;">
+										Bienvenid@, {{ request.user.first_name|default:request.user.username }} !
+									</p>
+
+									{% if request.user.is_staff %}
+										<ul class="actions">
+											<li><a href="{% url 'home:crearcategoriaapp' %}" class="button">+ Agregar Categoría</a></li>
+										</ul>
+									{% endif %}
+
+								{% else %}
+									<ul class="actions">
+										<li><a href="{% url 'home:loginapp' %}" class="button next">Iniciar Sesión</a></li>
+									</ul>
+								{% endif %}
+                            </div>
+                        </section>
+
+                </div>
+</html>
+{% endblock %}
