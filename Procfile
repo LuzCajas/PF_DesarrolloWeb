@@ -1,1 +1,1 @@
-web: gunicorn PF.wsgi
+web: python manage.py migrate && gunicorn PF.wsgi
