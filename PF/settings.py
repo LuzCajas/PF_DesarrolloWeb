@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from django.urls import reverse_lazy
+from decouple import config
 import os
 
 LOGIN_URL = reverse_lazy('home:loginapp')
@@ -31,7 +32,7 @@ SECRET_KEY = 'django-insecure-q1tmkq$s^hh6dmhm$kgvgs8++(##1gnyyg_*powggbzb@l96fh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 
 # Application definition
