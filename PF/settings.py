@@ -80,7 +80,6 @@ WSGI_APPLICATION = 'PF.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-mysql://root:UJJlEBCnncitimJMkehhZyUitrQmGnOB@shuttle.proxy.rlwy.net:59491/railway
 
 DATABASES = {
     'default': {
